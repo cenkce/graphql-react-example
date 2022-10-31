@@ -1,0 +1,54 @@
+@use "../style/functions.scss" as *;
+@use "../style/vars.scss" as *;
+.MainLayout {
+  height: 100vh;
+  background-color: #d4d9de;
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    display: flex;
+    justify-content: space-between;
+    padding: rem-calc(20) rem-calc(30);
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  > div {
+    margin: rem-calc(16);
+  }
+
+  background-image: image-set(
+    url(../assets/illustration1x.png) 1x,
+    url(../assets/illustration2x.png) 2x,
+    url(../assets/illustration3x.png) 3x
+  );
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.time {
+  font-size: rem-calc(54);
+  font-family: $primaryFont;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+  .time {
+    font-size: rem-calc(22);
+  }
+  .MainLayout {
+    > header {
+      padding-left: 2%;
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .MainLayout {
+    > header {
+      padding-left: 0;
+    }
+  }
+}

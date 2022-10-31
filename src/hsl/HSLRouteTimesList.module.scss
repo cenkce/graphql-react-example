@@ -1,0 +1,103 @@
+@use "../style/functions.scss" as *;
+@use "../style/vars.scss" as *;
+
+.HSLRouteTimesList {
+  max-width: rem-calc(600);
+  margin: 0 rem-calc(16);
+  width: 100%;
+}
+
+.listItem {
+  background-color: #ffffff;
+  max-width: rem-calc(600);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  > svg {
+    margin-left: rem-calc(16);
+  }
+  &Body {
+    display: flex;
+    padding: rem-calc(15);
+    flex-grow: 1;
+    > div {
+      display: flex;
+      flex-grow: 1;
+      &:first-child {
+        justify-content: start;
+      }
+      &:nth-child(2) {
+        justify-content: flex-end;
+        font-family: $secondaryFont;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: rem-calc(8);
+  }
+
+  &::before {
+    width: rem-calc(4);
+    position: sticky;
+    left: 0;
+    content: " ";
+    height: 40px;
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  &__delayed_true {
+    &::before {
+      background-color: #ff0000;
+    }
+  }
+
+  &__delayed_false {
+    &::before {
+      background-color: #00ad09;
+    }
+  }
+}
+.routeShortName, .delayText {
+  font-family: $primaryFont;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.delayText {
+  margin-left: rem-calc(10);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  > * {
+    display: flex;
+    font-weight: 700;
+    font-family: $primaryFont;
+  }
+  h2 {
+    margin-bottom: rem-calc(70);
+    letter-spacing: -0.6 px;
+    font-size: rem-calc(54);
+  }
+  h5 {
+    letter-spacing: -0.2 px;
+    font-size: rem-calc(20);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .listItemBody {
+    flex-direction: column;
+    > div {
+      &:nth-child(2) {
+        justify-content: start;
+      }
+    }
+  }
+}
