@@ -7,7 +7,7 @@ import classNames from "./HSLRouteTimesList.module.scss";
 import { arrivalTimeTextFactory, getMidnight } from "./utils";
 
 const SERVICE_UPDATE_INTERVAL = 10;
-export const HSLRouteTimesList = () => {
+export const HSLRouteTimesList = ({stopId}: {stopId: string}) => {
   const service = useHSLService();
   const model = useHSLModel();
   const stop = model.getStop();
@@ -23,7 +23,7 @@ export const HSLRouteTimesList = () => {
     let cancel: undefined | (() => void);
     function getData() {
       cancel?.();
-      cancel = service?.getStop("HSL:1201110");
+      cancel = service?.getStop(stopId);
     }
 
     const interval = setInterval(getData, SERVICE_UPDATE_INTERVAL * 1000);

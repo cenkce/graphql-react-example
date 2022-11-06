@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLayoutEffect } from "react";
 import { PropsWithChildren } from "react";
-import { LogoIcon } from "../assets/Logo";
 import classes from "./MainLayout.module.scss";
 
 
@@ -23,7 +22,6 @@ export const MainLayout = ({ children }: PropsWithChildren<{}>) => {
   return (
     <div className={classes.MainLayout}>
       <header>
-        <LogoIcon />
         <DisplayTime/>
       </header>
       {children}
